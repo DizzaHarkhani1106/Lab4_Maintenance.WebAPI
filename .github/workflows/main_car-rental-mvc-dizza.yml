@@ -5,9 +5,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'Assignement1_CarRental/**'
-      - '.github/workflows/car-rental-mvc.yml'
   workflow_dispatch:
 jobs:
   build:
@@ -49,3 +46,4 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9637AFD790194F478F042538B6C8B85A }}
+
