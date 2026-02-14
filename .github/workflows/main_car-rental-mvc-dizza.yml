@@ -24,16 +24,18 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Build with dotnet
+        working-directory: ./Assignement1_CarRental
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        working-directory: ./Assignement1_CarRental
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Assignement1_CarRental
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ${{env.DOTNET_ROOT}}/Assignement1_CarRental
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,4 +54,5 @@ jobs:
           app-name: 'car-rental-mvc-dizza'
           slot-name: 'Production'
           package: .
+
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9637AFD790194F478F042538B6C8B85A }}
