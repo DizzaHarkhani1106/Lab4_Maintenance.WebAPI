@@ -1,14 +1,14 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy ASP.Net Core app to Azure Web App - car-rental-mvc-dizza
-
 on:
   push:
     branches:
       - main
+    paths:
+      - 'Assignement1_CarRental/**'
+      - '.github/workflows/car-rental-mvc.yml'
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,15 +24,13 @@ jobs:
           dotnet-version: '8.x'
       
       - name: dotnet publish
-        working-directory: ./Assignement1_CarRental
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish ./Assignement1_CarRental/Assignement1_CarRental.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app-mvc
           path: ${{env.DOTNET_ROOT}}/myapp
-
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -51,5 +49,3 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9637AFD790194F478F042538B6C8B85A }}
-
-
