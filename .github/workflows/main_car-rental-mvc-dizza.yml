@@ -13,29 +13,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
-
+      contents: read
+    
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
-
+      
       - name: Build with dotnet
         working-directory: ./Assignement1_CarRental
         run: dotnet build --configuration Release
-
+      
       - name: dotnet publish
         working-directory: ./Assignement1_CarRental
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Assignement1_CarRental
-
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/Assignement1_CarRental
+          name: .net-app-mvc
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: ubuntu-latest
@@ -45,7 +45,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
+          name: .net-app-mvc
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -54,5 +54,5 @@ jobs:
           app-name: 'car-rental-mvc-dizza'
           slot-name: 'Production'
           package: .
-
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9637AFD790194F478F042538B6C8B85A }}
+
