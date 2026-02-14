@@ -11,7 +11,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - car-rental-mvc-dizza
 env:
   AZURE_WEBAPP_NAME: car-rental-mvc-dizza
   DOTNET_VERSION: '8.x'
-  APP_PATH: Assignement1_CarRental
+  APP_PATH: Assignement1_CarRental/Assignement1_CarRental.csproj
 
 # Workflow Triggers
 # - Runs automatically when code is pushed to main branch
@@ -90,3 +90,4 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F253C8C0167C449993949142A5C31F3B }}
+
