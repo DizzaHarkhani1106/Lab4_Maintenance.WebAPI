@@ -23,10 +23,6 @@ jobs:
         with:
           dotnet-version: '8.x'
       
-      - name: Build with dotnet
-        working-directory: ./Assignement1_CarRental
-        run: dotnet build --configuration Release
-      
       - name: dotnet publish
         working-directory: ./Assignement1_CarRental
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
@@ -55,4 +51,5 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9637AFD790194F478F042538B6C8B85A }}
+
 
