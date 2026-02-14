@@ -54,5 +54,5 @@ jobs:
           app-name: 'carrental-mvc-dizza'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_MVC }}
+          publish-profile: {{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B4B34320E465496985C602A1FA2B8CBC }}
 
