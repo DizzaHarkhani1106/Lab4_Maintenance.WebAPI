@@ -220,11 +220,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dizza\\source\\repos\\Maintenance.WebAPI\\Maintenance.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\dizza\\source\\repos\\Lab4\\Maintenance.WebAPI\\Maintenance.WebAPI.csproj",
       "projectName": "Maintenance.WebAPI",
-      "projectPath": "C:\\Users\\dizza\\source\\repos\\Maintenance.WebAPI\\Maintenance.WebAPI.csproj",
+      "projectPath": "C:\\Users\\dizza\\source\\repos\\Lab4\\Maintenance.WebAPI\\Maintenance.WebAPI.csproj",
       "packagesPath": "C:\\Users\\dizza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dizza\\source\\repos\\Maintenance.WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\dizza\\source\\repos\\Lab4\\Maintenance.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dizza\\AppData\\Roaming\\NuGet\\NuGet.Config",
